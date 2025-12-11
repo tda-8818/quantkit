@@ -545,13 +545,13 @@ def calculate_greeks(S, K, T, r, sigma):
 **Goal:** Build institutional-grade strategy testing engine
 
 - ✅ Vectorized Backtester
-  - [ ] Simple buy-and-hold backtest
-  - [ ] Transaction cost modeling
-  - [ ] Performance metrics calculation
+  - [x] Simple buy-and-hold backtest
+  - [x] Transaction cost modeling
+  - [x] Performance metrics calculation
   - [ ] Walk-forward optimization
   - [ ] Monte Carlo simulation
-  - [ ] Strategy comparison framework
-  - [ ] Detailed reporting system
+  - [x] Strategy comparison framework
+  - [x] Detailed reporting system
 
 **Deliverable:** Working backtester with realistic costs and professional metrics.
 

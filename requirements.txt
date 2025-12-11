@@ -8,6 +8,7 @@ curl_cffi==0.13.0
 frozendict==2.4.7
 idna==3.11
 iniconfig==2.3.0
+matplotlib==3.8.2
 multitasking==0.0.12
 mypy_extensions==1.1.0
 numpy==2.3.5

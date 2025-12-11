@@ -3,11 +3,11 @@ from src.data_pipeline import MarketDataPipeline
 pipeline = MarketDataPipeline()
 
 # Download any stocks
-tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA']
+tickers = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'VOO']
 pipeline.update(tickers, '2020-01-01', '2024-12-01')
 
 # Get data anytime
-aapl = pipeline.get_data('AAPL')
+aapl = pipeline.get_data('VOO')
 print(f"\n{aapl.head()}\n")
 print(f"Available: {pipeline.list_tickers()}") # Check what's stored
 
