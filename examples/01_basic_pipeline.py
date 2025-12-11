@@ -1,4 +1,4 @@
-from src.data_pipeline import MarketDataPipeline
+from src.data.pipeline import MarketDataPipeline
 
 # Initialize pipeline
 pipeline = MarketDataPipeline()

@@ -23,6 +23,7 @@ from typing import Dict, Optional
 import matplotlib.pyplot as plt
 from dataclasses import dataclass
 from datetime import datetime
+from src.strategies.base import Strategy
 
 @dataclass
 class BacktestResults:
@@ -110,96 +111,6 @@ class BacktestResults:
         print(f"  Total Commission:          ${self.total_commission:>10,.2f}")
         print(f"  Total Slippage:            ${self.total_slippage:>10,.2f}")
         print("=" * 60)
-
-
-class Strategy:
-    """
-    Base class for trading strategies.
-    
-    Subclass this and implement generate_signals() method.
-    """
-    
-    def __init__(self, data: pd.DataFrame):
-        """
-        Initialize strategy with price data.
-        
-        Args:
-            data: DataFrame with OHLCV columns and datetime index
-        """
-        self.data = data.copy()
-        self.signals = None
-    
-    def generate_signals(self) -> pd.Series:
-        """
-        Generate trading signals.
-        
-        Returns:
-            Series with values: 1 (long), 0 (flat), -1 (short)
-        """
-        raise NotImplementedError("Must implement generate_signals()")
-
-
-class SimpleMovingAverageCrossover(Strategy):
-    """
-    Simple moving average crossover strategy.
-    
-    Rules:
-        - Buy when fast MA crosses above slow MA
-        - Sell when fast MA crosses below slow MA
-    """
-    
-    def __init__(self, data: pd.DataFrame, fast_period: int = 50, slow_period: int = 200):
-        """
-        Args:
-            fast_period: Fast moving average period
-            slow_period: Slow moving average period
-        """
-        super().__init__(data)
-        self.fast_period = fast_period
-        self.slow_period = slow_period
-    
-    def generate_signals(self) -> pd.Series:
-        """Generate MA crossover signals"""
-        # Calculate moving averages
-        fast_ma = self.data['close'].rolling(window=self.fast_period).mean()
-        slow_ma = self.data['close'].rolling(window=self.slow_period).mean()
-        
-        # Generate signals (vectorized!)
-        signals = pd.Series(0, index=self.data.index)
-        signals[fast_ma > slow_ma] = 1   # Long when fast > slow
-        signals[fast_ma < slow_ma] = -1  # Short when fast < slow
-        
-        return signals
-
-
-class MomentumStrategy(Strategy):
-    """
-    12-month momentum strategy (academic factor).
-    
-    Rules:
-        - Buy if 12-month return is positive
-        - Sell if 12-month return is negative
-    """
-    
-    def __init__(self, data: pd.DataFrame, lookback: int = 252):
-        """
-        Args:
-            lookback: Lookback period in days (252 = 12 months)
-        """
-        super().__init__(data)
-        self.lookback = lookback
-    
-    def generate_signals(self) -> pd.Series:
-        """Generate momentum signals"""
-        # Calculate 12-month returns
-        returns_12m = self.data['close'].pct_change(self.lookback)
-        
-        # Generate signals
-        signals = pd.Series(0, index=self.data.index)
-        signals[returns_12m > 0] = 1   # Long if positive momentum
-        signals[returns_12m < 0] = -1  # Short if negative momentum
-        
-        return signals
 
 
 class Backtester:

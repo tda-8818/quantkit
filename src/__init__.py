@@ -1,3 +1,4 @@
-from .data_pipeline import MarketDataPipeline
-
-__all__ = ['MarketDataPipeline']
+"""
+QuantKit - Quantitative Trading Research Platform
+"""
+__version__ = "0.1.0"

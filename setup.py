@@ -1,0 +1,17 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="quantkit",
+    version="0.1.0",
+    packages=find_packages(include=['src', 'src.*']),  
+    package_dir={'': '.'},  
+    install_requires=[
+        'yfinance==0.2.32',
+        'pandas==2.1.4',
+        'numpy==1.26.2',
+        'sqlalchemy==2.0.23',
+        'python-dotenv==1.0.0',
+        'pytest==7.4.3',
+        'matplotlib==3.8.2',
+    ],
+)

@@ -2,8 +2,8 @@
 Example: Backtest a momentum strategy on AAPL
 """
 
-from src.data_pipeline import MarketDataPipeline
-from src.backtester import Backtester, MomentumStrategy, SimpleMovingAverageCrossover
+from src.data.pipeline import MarketDataPipeline
+from src.backtesting.backtester import Backtester, MomentumStrategy, SimpleMovingAverageCrossover
 
 # Get data
 pipeline = MarketDataPipeline()

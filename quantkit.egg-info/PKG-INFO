@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: quantkit
+Version: 0.1.0
+License-File: LICENSE
+Requires-Dist: yfinance==0.2.32
+Requires-Dist: pandas==2.1.4
+Requires-Dist: numpy==1.26.2
+Requires-Dist: sqlalchemy==2.0.23
+Requires-Dist: python-dotenv==1.0.0
+Requires-Dist: pytest==7.4.3
+Requires-Dist: matplotlib==3.8.2
+Dynamic: license-file
+Dynamic: requires-dist

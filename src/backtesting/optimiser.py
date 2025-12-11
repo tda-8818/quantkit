@@ -1,5 +1,6 @@
-from src.data_pipeline import MarketDataPipeline
-from src.backtester import Backtester, Strategy, BacktestResults
+from src.data.pipeline import MarketDataPipeline
+from src.backtesting.backtester import Backtester, BacktestResults
+from src.strategies.base import Strategy
 import pandas as pd
 import numpy as np
 from typing import List, Dict
@@ -12,29 +13,6 @@ class StrategyConfig:
     strategy_class: type
     params: Dict
     
-class MeanReversionStrategy(Strategy):
-    """
-    Buy when price below moving average (oversold)
-    Sell when price above moving average (overbought)
-    """
-    def __init__(self, data: pd.DataFrame, lookback: int = 20):
-        super().__init__(data)
-        self.lookback = lookback
-        
-    def generate_signals(self) -> pd.Series:
-        """
-        Signal logic:
-        - Buy (1) when price < MA (expecting reversion up)
-        - Sell (-1) when price > MA (expecting reversion down)
-        """
-        ma = self.data['close'].rolling(window=self.lookback).mean()
-        
-        signals = pd.Series(0, index=self.data.index)
-        signals[self.data['close'] < ma] = 1   # Price below MA = buy
-        signals[self.data['close'] > ma] = -1  # Price above MA = sell
-        
-        return signals
-
 class StrategyOptimiser:
     """
     Systematically test multiple strategies and parameters
