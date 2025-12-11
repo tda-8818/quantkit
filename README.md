@@ -11,7 +11,6 @@
 ## 📋 Table of Contents
 
 - [Overview](#overview)
-- [Why This Project Exists](#why-this-project-exists)
 - [System Architecture](#system-architecture)
 - [Core Components](#core-components)
 - [Project Roadmap](#project-roadmap)
@@ -44,42 +43,6 @@ Unlike hobbyist trading bots or commercial black-boxes, QuantKit is:
 - ✅ **Research Focused** - Emphasis on statistical rigor over quick profits
 - ✅ **Transparent** - Full visibility into methodology and assumptions
 - ✅ **Extensible** - Modular architecture for easy customization
-
----
-
-## 🤔 Why This Project Exists
-
-### The Problem
-
-Aspiring quantitative traders face a chicken-and-egg problem:
-
-- **Quant funds** require proven research experience to hire
-- **Research experience** requires proper infrastructure to develop
-- **Proper infrastructure** is what quant funds provide
-
-**Result:** Hard to break into quantitative finance without already being in it.
-
-### The Solution
-
-QuantKit provides the complete research infrastructure that a junior quant analyst would use at a top fund, enabling you to:
-
-1. Develop genuine quantitative research experience
-2. Build a portfolio of institutional-quality work
-3. Learn industry-standard tools and methodologies
-4. Demonstrate practical skills in interviews
-
-### Who This Is For
-
-**Primary Audience:**
-- Computer Science/Math/Physics graduates targeting quant roles
-- Self-taught developers transitioning to quantitative finance
-- Finance professionals learning algorithmic trading
-- Researchers studying market microstructure
-
-**Not For:**
-- Day traders seeking "hot stock tips"
-- Crypto yield farmers looking for quick gains
-- Anyone expecting guaranteed profits (there are none)
 
 ---
 
