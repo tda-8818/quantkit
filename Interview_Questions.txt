@@ -1,0 +1,6 @@
+Interviewer: "How do you prevent overfitting?"
+You: "I use walk-forward optimization with 2-year training 
+      and 6-month test windows. Average train Sharpe is 0.58, 
+      test Sharpe is 0.42, so only 28% degradation. Parameters 
+      are 75% stable across windows, suggesting robust strategy."
+Interviewer: 😍 "When can you start?"
