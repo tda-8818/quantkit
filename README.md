@@ -566,6 +566,25 @@ def calculate_greeks(S, K, T, r, sigma):
   - [ ] Factor decay monitoring
   - [ ] Research notebook templates
 
+What we are building:
+Universe (S&P 500 stocks)
+    ↓
+Download Fundamentals (P/E, ROE, Debt, etc.)
+    ↓
+Calculate Factor Scores
+    ├─ Value (P/E, P/B, Dividend)
+    ├─ Momentum (12-month return)
+    ├─ Quality (ROE, Profit Margin)
+    └─ Low Volatility
+    ↓
+Combine Scores → Rank Stocks
+    ↓
+Build Portfolio (Top 20 stocks, equal weight)
+    ↓
+Rebalance Monthly
+    ↓
+Backtest vs S&P 500
+
 **Deliverable:** Factor research system with publishable results.
 
 ### Phase 4: Advanced Topics (Weeks 13-18)
